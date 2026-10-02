@@ -1,0 +1,24 @@
+# Go
+/bin/
+*.test
+*.out
+coverage.*
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+# Notebooks and data
+.ipynb_checkpoints/
+data/raw/
+
+# Editors and OS
+.idea/
+.DS_Store
+
+# Secrets
+.env

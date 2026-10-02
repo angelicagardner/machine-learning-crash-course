@@ -1,0 +1,66 @@
+name: checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  scripts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: ShellCheck
+        run: |
+          shopt -s nullglob
+          files=(scripts/*.sh)
+          if (( ${#files[@]} )); then shellcheck "${files[@]}"; fi
+
+  code:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - if: hashFiles('go.mod') != ''
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+      - name: Go vet and test
+        if: hashFiles('go.mod') != ''
+        run: |
+          if [ -n "$(go list ./... 2>/dev/null)" ]; then
+            go vet ./...
+            go test ./...
+          else
+            echo "No Go packages yet"
+          fi
+
+      - if: hashFiles('pyproject.toml') != ''
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Ruff and pytest
+        if: hashFiles('pyproject.toml') != ''
+        run: |
+          pip install ruff pytest
+          ruff check .
+          ruff format --check .
+          pytest || [ $? -eq 5 ]   # 5 = no tests collected yet
+
+  links:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check links
+        # Skip in the template itself: {{COURSE_URL}} placeholders aren't links yet.
+        # init-course.sh deletes TEMPLATE.md, so this runs in every real course repo.
+        if: hashFiles('TEMPLATE.md') == ''
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --no-progress
+            --accept 200,206,429
+            --exclude-path templates
+            './**/*.md'
