@@ -1,6 +1,6 @@
 # AGENTS.md
 
-This is my personal learning log for **{{COURSE_NAME}}** (<{{COURSE_URL}}>).
+This is my personal learning log for **Machine Learning Crash Course** (<https://developers.google.com/machine-learning/crash-course>).
 The goal is that I understand the material. Optimise for my understanding,
 not for finished-looking notes.
 

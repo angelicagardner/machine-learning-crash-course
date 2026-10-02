@@ -2,7 +2,7 @@
 
 ## Primary source
 
-- [{{COURSE_NAME}}]({{COURSE_URL}})
+- [Machine Learning Crash Course](https://developers.google.com/machine-learning/crash-course)
 
 ## Supplementary
 

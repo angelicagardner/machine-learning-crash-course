@@ -1,23 +1,27 @@
-# {{COURSE_NAME}}
+# Machine Learning Crash Course
 
 My notes, exercises and reflections while working through
-[{{COURSE_NAME}}]({{COURSE_URL}}).
+[Machine Learning Crash Course](https://developers.google.com/machine-learning/crash-course).
 
-> This is a personal learning log, not a copy of the course. Notes are written in
-> my own words and link back to the original material — go there for the real thing.
+> This is a personal learning log, not a copy of the course. Notes are written
+> in my own words and link back to the original material. Go there for the real
+> words/material and to keep track of any updates that might have happened.
 
 ## Course info
 
 | | |
 |---|---|
-| Source | <{{COURSE_URL}}> |
-| Started | {{START_DATE}} |
-| Status | In progress |
-| Code | {{LANG}} |
+| Source | <https://developers.google.com/machine-learning/crash-course> |
+| Started | Todo |
+| Status | Todo |
+| Code | Python |
 
 ## Why I'm taking this
 
-<!-- 2–3 sentences: what I want to be able to do afterwards, and why now. -->
+I went through this course the first time several years ago when I was doing a
+thesis project, but since then AI/ML has just become more intertwined with work,
+and they have also updated the course so I want to go through it again as a
+refreshener and for general interest.
 
 ## Outcomes
 
@@ -43,4 +47,5 @@ resources.md               extra reading, related papers and talks
 ## License
 
 Notes: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) ·
-Code: MIT. Course material belongs to its authors; see the source for its license.
+
+Course material belongs to its authors; see the source for its license.
